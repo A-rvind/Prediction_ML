@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>House Price Prediction</title>
+    <script>
+        function resetForm() {
+            // Clear the prediction text
+            document.querySelector('.prediction-text').innerText = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <div class="form-container">
+        <form id= "prediction-form" action="/predict" method="post">
+            <!-- Bedrooms and Bathrooms-->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bedrooms">Bedrooms<span class="red-star">*</span>:</label>
+                    <input type="number" id="bedrooms" name="bedrooms"  required>
+                </div>
+                <div class="form-group">
+                    <label for="bathrooms">Bathrooms<span class="red-star">*</span>:</label>
+                    <input type="number" step="0.1" id="bathrooms" name="bathrooms" required>
+                </div>
+            </div>
+
+            <!--Square Footage (Living) and Square Footage (Lot)-->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sqft_living">Living Area Sqft<span class="red-star">*</span>:</label>
+                    <input type="number" id="sqft_living" name="sqft_living" required>
+                </div>
+                <div class="form-group">
+                    <label for="sqft_lot">Lot area Sqft<span class="red-star">*</span>:</label>
+                    <input type="number" id="sqft_lot" name="sqft_lot" required>
+                </div>
+            </div>
+
+            <!-- Floors and Waterfront-->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="floors">Floors<span class="red-star">*</span>:</label>
+                    <input type="number" id="floors" name="floors" required>
+                </div>
+                <div class="form-group">
+                    <label for="waterfront">Waterfront (0 or 1)<span class="red-star">*</span>:</label>
+                    <input type="number" id="waterfront" name="waterfront" required>
+                </div>
+            </div>
+
+            <!-- View and Condition -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="view">View (0-4)<span class="red-star">*</span>:</label>
+                    <input type="number" id="view" name="view" required>
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition (1-5)<span class="red-star">*</span>:</label>
+                    <input type="number" id="condition" name="condition" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sqft_living15">Living Sqft Nearby<span class="red-star">*</span>:</label>
+                    <p>Average Living Area of Nearby Homes</p>
+                    <input type="number" id="sqft_living15" name="sqft_living15" required>
+                </div>
+                <div class="form-group">
+                    <label for="sqft_lot15">Lot Sqft Nearby<span class="red-star">*</span>:</label>
+                    <p>Average lot Area of Nearby Homes</p>
+                    <input type="number" id="sqft_lot15" name="sqft_lot15" required>
+                </div>
+            </div>
+
+            <!-- Grade -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="grade">Grade (1-13)<span class="red-star">*</span>:</label>
+                    <input type="number" id="grade" name="grade" required>
+                </div>
+            </div>
+
+            <!-- Predict Price Button -->
+             <div class="form-row">
+                <div class="form-group">
+                    <button type="submit">Predict Price</button>
+                </div>
+                <div class="form-group">
+                    <button type="reset" onclick="resetForm()">Reset</button>
+                </div>
+             </div>
+            
+        </form>
+
+        <!-- Display Prediction -->
+        {% if prediction_text %}
+            <div class="prediction-text">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
