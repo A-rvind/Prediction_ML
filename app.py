@@ -1,10 +1,11 @@
+#Imported all required libraries,Framework.
 from flask import Flask, render_template, request
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import joblib
 
-app = Flask(__name__)
+app = Flask(__name__) #Initialize the App
 
 # Load the dataset
 try:
@@ -37,13 +38,13 @@ joblib.dump(model, 'house_price_model.pkl')
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html') #Render the home page
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
+    #handle the input values
     try:
-        # Load the model
+        # Load the trained model
         model = joblib.load('house_price_model.pkl')
 
         # Get the input features from the form
@@ -73,4 +74,6 @@ def predict():
         return f"An error occurred: {str(e)}"
     
 if __name__ == '__main__':
-    app.run(debug=False) # change to True if needed 
+    app.run(debug=False)
+    #False is  used  for production, True for debugging 
+    #port=5000 is default port of Flask App
