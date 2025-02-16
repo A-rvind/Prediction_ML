@@ -2,7 +2,7 @@
 
 <ins>Project Overview</ins>
 
-This project is a **Flask-based web application** that predicts house prices based on user input features such as the number of bedrooms, bathrooms, square footage, location factors, and more. The prediction is train simple model algorithm by a **Linear Regression model** trained on a housing dataset.
+This project is a **Flask-based web application** that predicts house prices based on user input features such as the number of bedrooms, bathrooms in square ft, Condition, other factors, and more. The prediction is train simple model algorithm by a **Linear Regression model** trained on a housing dataset.
 
 <ins>Technologies Used</ins>
 
