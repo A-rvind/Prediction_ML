@@ -48,6 +48,18 @@ Static folder for CSS, templates folder for html are the default directories use
 
 <ins>Images:</ins>
 
+UI:
+
+![cap1](https://github.com/user-attachments/assets/2970ecd7-4631-4415-870d-b0f83ee02f5c)
+
+Input Value:
+
+![cap2](https://github.com/user-attachments/assets/c149d0c6-9883-4de0-b80b-3f7f365af3da)
+
+Output Value:
+![cap3](https://github.com/user-attachments/assets/55937ad8-33b8-4b9c-a6d8-771a9771d5a0)
+
+
 <ins>Sample</ins>
 
 Input: 
